@@ -3,6 +3,7 @@
 #include <cmath>
 
 Cidade::Cidade(){
+	nome_ = NULL;
 	raio_ = 0;
 	angulo_ = 0;
 }
@@ -29,7 +30,7 @@ float Cidade::calc_distancia(Cidade a){
 float Cidade::calc_tempo(Cidade destino){
 	float distancia;
 	distancia = this->calc_distancia(destino);
-	return(distancia/50);  // mÈdia 50km/h
+	return(distancia/50);  // m√©dia 50km/h
 }
 
 Entrega::Entrega(){
@@ -95,7 +96,7 @@ float Entrega::calc_precoPF(){
 			return((distancia/70+peso_/2)*1,5);
 		}
 	}
-	else if(tipo_produto == "Materiais fr·geis"){
+	else if(tipo_produto == "Materiais fr√°geis"){
 		if(tipo_entrega == "Normal"){
 			return(distancia/70+quantidade_*5);
 		}
@@ -107,10 +108,10 @@ float Entrega::calc_precoPF(){
 
 float Entrega::calc_precoPJ(){
 	float distancia = this->inicio_.calc_distancia(this->fim_);
-	if(tipo_produto == "Materiais fr·geis"){
+	if(tipo_produto == "Materiais fr√°geis"){
 		return(distancia/5+quantidade_*15);
 	}
-	else if(tipo_produto == "LÌquidos inflam·veis"){
+	else if(tipo_produto == "L√≠quidos inflam√°veis"){
 		return((distancia*4)*quantidade_/10000);
 	}
 	else if(tipo_produto == "Outros"){
