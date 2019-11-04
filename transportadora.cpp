@@ -66,6 +66,8 @@ void Entrega::setCidades(Cidade inicio, Cidade fim){
 void Entrega::imprime_parametros(){
 	std::cout << "Tipo do Produto: " << tipo_produto << std::endl;
 	std::cout << "Tipo de Entrega: " << tipo_entrega << std::endl;
+	std::cout << "Origem: " << inicio_.getNome() << std::endl;
+	std::cout << "Destino: " << fim_.getNome() << std::endl;
 }
 
 int Entrega::calc_restante(float percorrido){
