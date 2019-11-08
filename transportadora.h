@@ -1,25 +1,26 @@
 #ifndef TRANSPORTADORA_H
 #define TRANSPORTADORA_H
+#include <string>
 
 class Cidade{
 public:
 	// Construtor
 	Cidade();
 	
-	// FunÁ„o set
-	void setParametros(const char* nome, float ang, float r);
+	// Fun√ß√£o set
+	void setParametros(std::string nome, float ang, float r);
 	
-	// FunÁ„o get p/ nome
-	const char* getNome();
+	// Fun√ß√£o get p/ nome
+	std::string getNome();
 	
-	// Calcula a dist‚ncia entre duas cidades (km)
+	// Calcula a dist√¢ncia entre duas cidades (km)
 	float calc_distancia(Cidade a);
 	
 	// Calcula o tempo de viagem entre duas cidades em horas
 	float calc_tempo(Cidade destino);
 	
 private:
-	const char* nome_;
+	std::string nome_;
 	float angulo_;
 	float raio_;   // medido em km
 };
@@ -29,22 +30,22 @@ public:
 	// Construtor
 	Entrega();
 	
-	// FunÁıes set
+	// Fun√ß√µes set
 	void setTipo_produto(const char* produto);
 	void setTipo_entrega(const char* entrega);
 	void setPeso(float peso);
 	void setQuantidade(int quant);
 	void setCidades(Cidade inicio, Cidade fim);
 	
-	// Imprime os par‚metros exceto peso e quantidade
+	// Imprime os par√¢metros exceto peso e quantidade
 	void imprime_parametros();
 	
 	// Calcula o tempo previsto para a entrega da mercadoria em dias
-	// Recebe: dist‚ncia percorrida, em km - tempo restante <= tempo total
-	// Deve levar em consideraÁ„o o tipo de entrega
+	// Recebe: dist√¢ncia percorrida, em km - tempo restante <= tempo total
+	// Deve levar em considera√ß√£o o tipo de entrega
 	int calc_restante(float percorrido);
 		
-	// Calcula o preÁo da entrega
+	// Calcula o pre√ßo da entrega
 	// Deve levar em conta tipo do produto, entrega e peso
 	float calc_precoPF();
 	float calc_precoPJ();
