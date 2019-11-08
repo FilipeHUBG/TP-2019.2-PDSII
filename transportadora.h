@@ -25,7 +25,7 @@ private:
 	float raio_;   // medido em km
 };
 
-class Entrega : public Cidade{
+class Entrega{
 public:
 	// Construtor
 	Entrega();
