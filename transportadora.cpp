@@ -1,6 +1,7 @@
 #include "transportadora.h"
 #include <iostream>
 #include <cmath>
+#include <string>
 
 Cidade::Cidade(){
 	nome_;
