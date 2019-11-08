@@ -3,18 +3,18 @@
 #include <cmath>
 
 Cidade::Cidade(){
-	nome_ = NULL;
+	nome_;
 	raio_ = 0;
 	angulo_ = 0;
 }
 
-void Cidade::setParametros(const char* nome, float ang, float r){
+void Cidade::setParametros(std::string nome, float ang, float r){
 	nome_ = nome;
 	angulo_ = ang;
 	raio_ = r;
 }
 
-const char* Cidade::getNome(){
+std::string Cidade::getNome(){
 	return(nome_);
 }
 
