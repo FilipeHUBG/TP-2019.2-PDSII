@@ -1,6 +1,7 @@
 #include "transportadora.h"
 #include <iostream>
 #include <map>
+#include <string>
 
 int main(){
 	std::string teste;
