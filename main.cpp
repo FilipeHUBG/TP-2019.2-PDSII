@@ -4,13 +4,14 @@
 
 int main(){
 	std::string teste;
-	std::map<const std::string, Cidade>Lista_Cidades;
-	std::map<const std::string, Cidade>::iterator itcidade;
+	std::map<std::string, Cidade>Lista_Cidades;
+	std::map<std::string, Cidade>::iterator itcidade;
 	Cidade Belo_Horizonte;
 	Belo_Horizonte.setParametros("Belo Horizonte", 0, 0);
-	Lista_Cidades.insert(std::pair<const std::string, Cidade>(Belo_Horionte.getNome(), Belo_Horizonte));
+	Lista_Cidades.insert(std::pair<std::string, Cidade>(Belo_Horionte.getNome(), Belo_Horizonte));
 	Cidade Sao_Paulo;
 	Sao_Paulo.setParametros("Sao Paulo", 233, 478.723404);
+	Lista_Cidades.insert(std::pair<std::string, Cidade>(Sao_Paulo.getNome(), Sao_Paulo));
 	Cidade Rio_de_Janeiro;
 	Rio_de_Janeiro.setParametros("Rio de Janeiro", 279.80, 319.148936);
 	Cidade Campo_Grande;
