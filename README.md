@@ -4,7 +4,7 @@ TRABALHO PRÁTICO PDSII - SISTEMA DE GERÊNCIA DE UMA TRANSPORTADORA
 	- MATHEUS GALBIATTI - ENGENHARIA DE CONTROLE E AUTOMAÇÃO
 	
 	-> PARA COMPILAR O CÓDIGO:
-	Deve criado um arquivo do tipo "Console Application", no qual haverá três arquuivos principais:
+	Deve criado um arquivo do tipo "Console Application", no qual haverá três arquivos principais:
 		- transportadora3.cpp, que será o Arquivo de Recurso do programa;
 		- transportadora3.h, que será o Arquivo de Cabeçalho do programa;
 		- main.cpp, arquivo que contém a função main.
