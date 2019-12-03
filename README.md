@@ -2,6 +2,16 @@ TRABALHO PRÁTICO PDSII - SISTEMA DE GERÊNCIA DE UMA TRANSPORTADORA
 
 	- FILIPE SANTOS FERNANDES - ENGENHARIA DE SISTEMAS
 	- MATHEUS GALBIATTI - ENGENHARIA DE CONTROLE E AUTOMAÇÃO
+	
+	-> PARA COMPILAR O CÓDIGO:
+	Deve criado um arquivo do tipo "Console", no qual haverá três arquuivos principais:
+		- transportadora3.cpp, que será o Arquivo de Recurso do programa;
+		- transportadora3.h, que será o Arquivo de Cabeçalho do programa;
+		- main.cpp, arquivo que contém a função main.
+	Algumas observações:
+		- O programa foi desenvolvido no sistema operacional Windows e, como há o uso da função 'system', essa recebe como parâmetro comandos específicos desse sistema operacional, como na linha 104, onde há 'system("pause")'. Portanto, caso o programa não for compilado nesse sistema operacional, devem ser realizados ajustes com relação aos comandos 'system'.
+		- O progama foi testado tanto nas plataformas 'Microsoft Visual Studio' quanto no 'Dev-C++', funcionando normalmente.
+		- A função 'getline()' é utilizada com frequêcnia no programa e em alguns compiladores ela deve ser chamada duas vezes (uma embaixo da outra) para que funcione adequadamente.
 
 	-> USER STORIES:
 	1) COMO ATENDENTE DE UMA TRANSPORTADORA, EU GOSTARIA DE CADASTRAR NOVOS CLIENTES PARA CONTROLE DA EMPRESA;
