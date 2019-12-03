@@ -12,8 +12,10 @@ TRABALHO PRÁTICO PDSII - SISTEMA DE GERÊNCIA DE UMA TRANSPORTADORA
 		- O programa foi desenvolvido no sistema operacional Windows e, como há o uso da função 'system', essa recebe como
 	parâmetro comandos específicos desse sistema operacional, como na linha 104, onde há 'system("pause")'. Portanto, caso o
 	programa não for compilado nesse sistema operacional, devem ser realizados ajustes com relação aos comandos 'system'.
-		- O progama foi testado tanto nas plataformas 'Microsoft Visual Studio' quanto no 'Dev-C++', funcionando normalmente.
-		- A função 'getline()' é utilizada com frequêcnia no programa e em alguns compiladores ela deve ser chamada duas vezes
+		- O progama foi testado tanto na plataforma 'Microsoft Visual Studio' quanto no 'Dev-C++', funcionando normalmente.
+	No 'Dev-C++' o comando 'virtual' da função 'imprime_cadastro()', presente na classe 'Cadastro', teve que ser retirado, porém
+	esse provavelmente foi apenas um problema de compatibilidade com a versão do compilador utilizado nessa plataforma.
+		- A função 'getline()' é utilizada com frequência no programa e em alguns compiladores ela deve ser chamada duas vezes
 	(uma embaixo da outra) para que funcione adequadamente.
 
 	-> USER STORIES:
