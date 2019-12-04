@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 int main() {
-	float auxiliar; // Usado para gerar os números dos pedidos (CASE 4)
+	float auxiliar = 0; // Usado para gerar os números dos pedidos (CASE 4)
 	std::map<std::string, Cidade>Lista_Cidades;
 	std::map<std::string, Cidade>::iterator itcidade;
 	Cidade Belo_Horizonte;
@@ -104,13 +104,15 @@ int main() {
 	do {
 		system("cls");
 		std::cout << "Digite o numero referente a operacao e pressione a tecla ENTER" << std::endl;
-		std::cout << "1. Rastreio de Pedido   2. Cadastro Pessoa Fisica   3. Cadastro Pessoa Juridica";
+		std::cout << "1. Rastreio de Pedido   2. Cadastro Pessoa Fisica   3. Cadastro Pessoa Juridica" << std::endl;
 		std::cout << "4. Pedidos/Consulta de Preco   5. Cadastro de Funcionarios   6. Consulta/Alterar Dados de Cliente" << std::endl;
 		std::cin >> op;
 		switch (op) {
 		case 1:
 		{
 			float num;
+			std::cout << "Digite o numero do pedido: ";
+			std::cin >> num;
 			itentregas = Lista_Entregas.find(num);
 			try
 			{
@@ -126,7 +128,7 @@ int main() {
 			}
 			float teste = rand() % 100;   // UTILIZADO PARA QUE A FUNÇÃO calc_restante RECEBA UM VALOR
 			itentregas->second.imprime_parametros();
-			std::cout << "Tempo restante: " << itentregas->second.calc_restante(teste) << " horas." << std::endl;
+			std::cout << "Tempo restante: " << itentregas->second.calc_restante(teste) << " dias." << std::endl;
 			system("pause");
 			break;
 		}
@@ -151,6 +153,7 @@ int main() {
 			Cadastro cadastro;
 			std::string nome, email;
 			std::cout << "Nome: ";
+			getline(std::cin, nome);
 			getline(std::cin, nome);
 			cadastro.setNome(nome);
 			std::cout << "Email: ";
@@ -183,6 +186,7 @@ int main() {
 			CadastroPJ empresa;
 			std::string nome, email;
 			std::cout << "Razao Social: ";
+			getline(std::cin, nome);
 			getline(std::cin, nome);
 			empresa.setNome(nome);
 			std::cout << "Email: ";
@@ -236,8 +240,9 @@ int main() {
 						break;
 					}
 				} while (x < 1 || x>2);
+				tipoentrega = pedido.getTipo_entr();
 				do {
-					std::cout << "Produto:   1. Carta   2. Pacote   3. Materiais frageis";
+					std::cout << "Produto:   1. Carta   2. Pacote   3. Materiais frageis - ";
 					std::cin >> y;
 					switch (y)
 					{
@@ -258,16 +263,18 @@ int main() {
 						break;
 					}
 				} while (y < 1 || y> 3);
+				tipoprod = pedido.getTipo_prod();
 				std::string origem, destino;
 				bool aux1 = false;
 				while (!aux1) {
 					std::cout << "Cidade origem: ";
 					getline(std::cin, origem);
+					getline(std::cin, origem);
 					itcidade = Lista_Cidades.find(origem);
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas e minusculas.";
+							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else aux1 = true;
 					}
@@ -285,7 +292,7 @@ int main() {
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas e minusculas.";
+							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else aux2 = true;
 					}
@@ -297,7 +304,7 @@ int main() {
 				pedido.setCidadefim(itcidade->second);
 				float p;
 				int q;
-				if (tipoprod = "Pacote") {
+				if (tipoprod == "Pacote") {
 					std::cout << "Digite o peso: ";
 					std::cin >> p;
 					pedido.setPeso(p);
@@ -320,6 +327,8 @@ int main() {
 						std::cout << "Guarde o numero do pedido: " << auxiliar << std::endl;
 						system("pause");
 						auxiliar++;
+						break;
+					case 2:
 						break;
 					default:
 						std::cout << "Erro. Digite 1 ou 2.";
@@ -359,11 +368,12 @@ int main() {
 				while (!valido) {
 					std::cout << "Cidade origem: ";
 					getline(std::cin, orig);
+					getline(std::cin, orig);
 					itcidade = Lista_Cidades.find(orig);
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas e minusculas.";
+							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else valido = true;
 					}
@@ -381,7 +391,7 @@ int main() {
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas e minusculas.";
+							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else valido2 = true;
 					}
@@ -393,7 +403,8 @@ int main() {
 				pedidoemp.setCidadefim(itcidade->second);
 				float c;
 				int d;
-				if (tipoemp = "Outros") {
+				tipoemp = pedidoemp.getTipo_prod();
+				if (tipoemp == "Outros") {
 					std::cout << "Digite o peso: ";
 					std::cin >> c;
 					pedidoemp.setPeso(c);
@@ -451,6 +462,7 @@ int main() {
 			float salario;
 			std::cout << "Nome: ";
 			getline(std::cin, nome);
+			getline(std::cin, nome);
 			func.setNome(nome);
 			std::cout << "Email: ";
 			getline(std::cin, email);
@@ -464,8 +476,11 @@ int main() {
 			func.setSalario(salario);
 			std::cout << "Data de Ingresso: ";
 			getline(std::cin, ing);
+			getline(std::cin, ing);
 			func.setData_ing(ing);
 			Lista_Funcionarios.insert(std::pair<float, CadastroFuncionario>(cpf, func));
+			std::cout << "Funcionario cadastrado com sucesso." << std::endl;
+			system("pause");
 			break;
 		}
 		case 6:
@@ -478,6 +493,7 @@ int main() {
 				case 1:
 					float c;
 					std::cout << "Digite o CPF: ";
+					std::cin >> c;
 					itpessoas = Lista_Pessoas.find(c);
 					try
 					{
@@ -503,8 +519,10 @@ int main() {
 							std::cout << "Digite o Nome: ";
 							std::string novo;
 							getline(std::cin, novo);
+							getline(std::cin, novo);
 							itpessoas->second.setNome(novo);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 2:
@@ -514,6 +532,7 @@ int main() {
 							std::cin >> nvcpf;
 							itpessoas->second.setNum_id(nvcpf);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 3:
@@ -521,19 +540,22 @@ int main() {
 							std::cout << "Digite o email: ";
 							std::string nvemail;
 							getline(std::cin, nvemail);
+							getline(std::cin, nvemail);
 							itpessoas->second.setEmail(nvemail);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						default:
 							std::cout << "Digite um numero valido." << std::endl;
 							break;
 						}
-					} while (op3 != 4);
+					} while (op3<1 || op3>4);
 					break;
 				case 2:
 					float n;
 					std::cout << "Digite o CNPJ: ";
+					std::cin >> n;
 					itpj = Lista_PJ.find(n);
 					try
 					{
@@ -559,8 +581,10 @@ int main() {
 							std::cout << "Digite o Nome: ";
 							std::string novo;
 							getline(std::cin, novo);
+							getline(std::cin, novo);
 							itpj->second.setNome(novo);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 2:
@@ -570,6 +594,7 @@ int main() {
 							std::cin >> nvcnpj;
 							itpj->second.setNum_id(nvcnpj);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 3:
@@ -577,15 +602,17 @@ int main() {
 							std::cout << "Digite o email: ";
 							std::string nvemail;
 							getline(std::cin, nvemail);
+							getline(std::cin, nvemail);
 							itpj->second.setEmail(nvemail);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						default:
 							std::cout << "Erro. Digite um numero valido. " << std::endl;
 							break;
 						}
-					} while (op4 != 4);
+					} while (op4<1 || op4>4);
 					break;
 				case 3:
 					float cp;
@@ -617,8 +644,10 @@ int main() {
 							std::cout << "Digite o Nome: ";
 							std::string nov;
 							getline(std::cin, nov);
+							getline(std::cin, nov);
 							itfuncionarios->second.setNome(nov);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 2:
@@ -628,6 +657,7 @@ int main() {
 							std::cin >> nvc;
 							itfuncionarios->second.setNum_id(nvc);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 3:
@@ -635,8 +665,10 @@ int main() {
 							std::cout << "Digite o email: ";
 							std::string nve;
 							getline(std::cin, nve);
+							getline(std::cin, nve);
 							itfuncionarios->second.setEmail(nve);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 4:
@@ -644,8 +676,10 @@ int main() {
 							std::cout << "Digite o cargo:";
 							std::string carg;
 							getline(std::cin, carg);
+							getline(std::cin, carg);
 							itfuncionarios->second.setCargo(carg);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 5:
@@ -655,6 +689,7 @@ int main() {
 							std::cin >> sal;
 							itfuncionarios->second.setSalario(sal);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						case 6:
@@ -662,21 +697,32 @@ int main() {
 							std::cout << "Digite a data de ingresso: ";
 							std::string ingr;
 							getline(std::cin, ingr);
+							getline(std::cin, ingr);
 							itfuncionarios->second.setData_ing(ingr);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
+							system("pause");
 							break;
 						}
 						default:
 							std::cout << "Digite um numero valido." << std::endl;
+							system("pause");
 							break;
 						}
-					} while (op5 != 7);
+					} while (op5 < 1 || op5>7);
 					break;
+				case 4:
+				{
+					break;
+				}
 				default:
 					std::cout << "Digite um numero valido - 4 para voltar ao menu." << std::endl;
 					break;
 				}
-			} while (op2 != 4);
+			} while (op2<1 && op2>4);
+		}
+		case 7:
+		{
+			break;
 		}
 		default:
 			std::cout << "Erro. Digite um numero valido - Para encerrar o programa digite 7." << std::endl;
