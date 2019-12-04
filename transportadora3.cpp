@@ -32,12 +32,12 @@ float Cidade::calc_distancia(Cidade a) {
 float Cidade::calc_tempo(Cidade destino) {
 	float distancia;
 	distancia = this->calc_distancia(destino);
-	return(distancia / 50);  // média 50km/h
+	return(distancia / 50);  // mÃ©dia 50km/h
 }
 
 Entrega::Entrega() {
-	tipo_produto = NULL;
-	tipo_entrega = NULL;
+	tipo_produto = "N/D";
+	tipo_entrega = "N/D";
 	peso_ = 0;
 	quantidade_ = 0;
 	Cidade inicio_;
@@ -197,4 +197,12 @@ void CadastroFuncionario::imprime_DadosFunc() {
 	std::cout << "Cargo: " << cargo_ << std::endl;
 	std::cout << "Salario: " << salario_ << std::endl;
 	std::cout << "Data de ingreso: " << data_ingresso_ << std::endl;
+}
+
+const char* Entrega::getTipo_prod() {
+	return this->tipo_produto;
+}
+
+const char* Entrega::getTipo_entr() {
+	return this->tipo_entrega;
 }
