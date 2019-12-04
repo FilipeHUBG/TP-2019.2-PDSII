@@ -7,13 +7,13 @@ public:
 	// Construtor
 	Cidade();
 
-	// FunÁ„o set
+	// Fun√ß√£o set
 	void setParametros(std::string nome, float ang, float r);
 
-	// FunÁ„o get p/ nome
+	// Fun√ß√£o get p/ nome
 	std::string getNome();
 
-	// Calcula a dist‚ncia entre duas cidades (km)
+	// Calcula a dist√¢ncia entre duas cidades (km)
 	float calc_distancia(Cidade a);
 
 	// Calcula o tempo de viagem entre duas cidades em horas
@@ -30,7 +30,7 @@ public:
 	// Construtor
 	Entrega();
 
-	// FunÁıes set
+	// Fun√ß√µes set
 	void setTipo_produto(const char* produto);
 	void setTipo_entrega(const char* entrega);
 	void setPeso(float peso);
@@ -38,15 +38,19 @@ public:
 	void setCidadeinicio(Cidade inicio);
 	void setCidadefim(Cidade fim);
 
-	// Imprime os par‚metros exceto peso e quantidade
+	// Fun√ß√µes get
+	const char* getTipo_prod();
+	const char* getTipo_entr();
+
+	// Imprime os par√¢metros exceto peso e quantidade
 	void imprime_parametros();
 
 	// Calcula o tempo previsto para a entrega da mercadoria em dias
-	// Recebe: dist‚ncia percorrida, em km - tempo restante <= tempo total
-	// Deve levar em consideraÁ„o o tipo de entrega
+	// Recebe: dist√¢ncia percorrida, em km - tempo restante <= tempo total
+	// Deve levar em considera√ß√£o o tipo de entrega
 	int calc_restante(float percorrido);
 
-	// Calcula o preÁo da entrega
+	// Calcula o pre√ßo da entrega
 	// Deve levar em conta tipo do produto, entrega e peso
 	float calc_precoPF();
 	float calc_precoPJ();
@@ -65,17 +69,17 @@ public:
 	// Construtor
 	Cadastro();
 
-	// FunÁıes set
+	// Fun√ß√µes set
 	void setNome(std::string nome);
 	void setEmail(std::string email);
 	void setNum_id(float num);
 
-	// FunÁıes get
+	// Fun√ß√µes get
 	float getNum_id();
 	std::string get_id();
 	std::string getEmail();
 
-	// Imprime as informaÁıes do cliente pessoa fÌsica
+	// Imprime as informa√ß√µes do cliente pessoa f√≠sica
 	virtual void imprime_cadastro();
 
 private:
@@ -89,9 +93,8 @@ public:
 	// Construtor
 	CadastroPJ();
 
-	// Imprime as informaÁıes do cliente pessoa jurÌdica
+	// Imprime as informa√ß√µes do cliente pessoa jur√≠dica
 	void imprime_cadastro() override;
-
 };
 
 class CadastroFuncionario : public Cadastro {
@@ -99,7 +102,7 @@ public:
 	// Construtor
 	CadastroFuncionario();
 
-	// FunÁıes set p/ os dados adicionais
+	// Fun√ß√µes set p/ os dados adicionais
 	void setCargo(std::string cargo);
 	void setSalario(float salario);
 	void setData_ing(std::string ing);
