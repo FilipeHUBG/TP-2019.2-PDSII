@@ -5,7 +5,7 @@
 #include <cstdlib>
 
 int main() {
-	float auxiliar; // Usado para gerar os números dos pedido (CASE 4)
+	float auxiliar; // Usado para gerar os números dos pedidos (CASE 4)
 	std::map<std::string, Cidade>Lista_Cidades;
 	std::map<std::string, Cidade>::iterator itcidade;
 	Cidade Belo_Horizonte;
@@ -225,16 +225,17 @@ int main() {
 					{
 					case 1:
 						tipoentrega = "Normal";
+						pedido.setTipo_entrega(tipoentrega);
 						break;
 					case 2:
 						tipoentrega = "Expresso";
+						pedido.setTipo_entrega(tipoentrega);
 						break;
 					default:
 						std::cout << "Erro. Digite um numero valido." << std::endl;
 						break;
 					}
-				} while (x<1 || x>2);
-				pedido.setTipo_entrega(tipoentrega);
+				} while (x < 1 || x>2);
 				do {
 					std::cout << "Produto:   1. Carta   2. Pacote   3. Materiais frageis";
 					std::cin >> y;
@@ -242,19 +243,21 @@ int main() {
 					{
 					case 1:
 						tipoprod = "Carta";
+						pedido.setTipo_produto(tipoprod);
 						break;
 					case 2:
 						tipoprod = "Pacote";
+						pedido.setTipo_produto(tipoprod);
 						break;
 					case 3:
 						tipoprod = "Materiais frageis";
+						pedido.setTipo_produto(tipoprod);
 						break;
 					default:
 						std::cout << "Erro. Digite um numero valido." << std::endl;
 						break;
 					}
-				} while (y<1 || y> 3);
-				pedido.setTipo_produto(tipoprod);
+				} while (y < 1 || y> 3);
 				std::string origem, destino;
 				bool aux1 = false;
 				while (!aux1) {
@@ -322,7 +325,7 @@ int main() {
 						std::cout << "Erro. Digite 1 ou 2.";
 						break;
 					}
-				} while (z<1 || z>2);
+				} while (z < 1 || z>2);
 			}
 			else if (itpessoas == Lista_Pessoas.end() && itpj != Lista_PJ.end()) {
 				Entrega pedidoemp;
@@ -336,19 +339,21 @@ int main() {
 					{
 					case 1:
 						tipoemp = "Materiais frageis";
+						pedidoemp.setTipo_produto(tipoemp);
 						break;
 					case 2:
 						tipoemp = "Liquidos Inflamaveis";
+						pedidoemp.setTipo_produto(tipoemp);
 						break;
 					case 3:
 						tipoemp = "Outros";
+						pedidoemp.setTipo_produto(tipoemp);
 						break;
 					default:
 						std::cout << "Erro. Digite 1, 2 ou 3.";
 						break;
 					}
-				} while (a<1 || a>3);
-				pedidoemp.setTipo_produto(tipoemp);
+				} while (a < 1 || a>3);
 				std::string orig, dest;
 				bool valido = false;
 				while (!valido) {
@@ -415,7 +420,7 @@ int main() {
 						std::cout << "Erro. Digite 1 ou 2.";
 						break;
 					}
-				} while (b<1 || b>2);
+				} while (b < 1 || b>2);
 			}
 			else {
 				std::cout << "Erro ao digitar o CPF/CPNJ. ENTER para voltar ao menu." << std::endl;
