@@ -117,7 +117,7 @@ int main() {
 			try
 			{
 				if (itentregas == Lista_Entregas.end()) {
-					throw "Erro. A entrega nao existe. Pressione ENTER para voltar ao menu.";
+					throw "Erro. A entrega nao existe. Para voltar ao menu, pressione qualquer tecla.";
 				}
 			}
 			catch (const char* erro)
@@ -141,7 +141,7 @@ int main() {
 			try
 			{
 				if (itpessoas != Lista_Pessoas.end()) {
-					throw "O cliente ja esta cadastrado. Pressione ENTER para voltar ao menu.";
+					throw "O cliente ja esta cadastrado. Para voltar ao menu, pressione qualquer tecla.";
 				}
 			}
 			catch (const char* erro)
@@ -174,7 +174,7 @@ int main() {
 			try
 			{
 				if (itpj != Lista_PJ.end()) {
-					throw "A empresa ja esta cadastrada. Pressione ENTER para voltar ao menu.";
+					throw "A empresa ja esta cadastrada. Para voltar ao menu, pressione qualquer tecla.";
 				}
 			}
 			catch (const char* erro)
@@ -208,7 +208,7 @@ int main() {
 			try
 			{
 				if (itpessoas == Lista_Pessoas.end() && itpj == Lista_PJ.end()) {
-					throw "Erro. Cliente nao cadastrado. ENTER para retornar ao menu";
+					throw "Erro. Cliente nao cadastrado. Para voltar ao menu, pressione qualquer tecla.";
 				}
 			}
 			catch (const char* erro)
@@ -274,7 +274,7 @@ int main() {
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
+							throw "Erro: digite 2 VEZES uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else aux1 = true;
 					}
@@ -373,7 +373,7 @@ int main() {
 					try
 					{
 						if (itcidade == Lista_Cidades.end()) {
-							throw "Erro: digite uma capital com letras maiusculas, minusculas e sem acentos.";
+							throw "Erro: digite 2 VEZES uma capital com letras maiusculas, minusculas e sem acentos.";
 						}
 						else valido = true;
 					}
@@ -427,6 +427,8 @@ int main() {
 						system("pause");
 						auxiliar++;
 						break;
+					case 2:
+						break;
 					default:
 						std::cout << "Erro. Digite 1 ou 2.";
 						break;
@@ -434,7 +436,7 @@ int main() {
 				} while (b < 1 || b>2);
 			}
 			else {
-				std::cout << "Erro ao digitar o CPF/CPNJ. ENTER para voltar ao menu." << std::endl;
+				std::cout << "Erro ao digitar o CPF/CPNJ." << std::endl;
 				system("pause");
 			}
 			break;
@@ -448,7 +450,7 @@ int main() {
 			try
 			{
 				if (itfuncionarios != Lista_Funcionarios.end()) {
-					throw "O funcionario ja esta cadastrado. Pressione ENTER para voltar ao menu.";
+					throw "O funcionario ja esta cadastrado. Para voltar ao menu, pressione qualquer tecla.";
 				}
 			}
 			catch (const char* erro)
@@ -498,7 +500,7 @@ int main() {
 					try
 					{
 						if (itpessoas == Lista_Pessoas.end()) {
-							throw "Nao ha registro do cliente. Pressione ENTER para voltar ao menu.";
+							throw "Nao ha registro do cliente. Para voltar ao menu, pressione qualquer tecla.";
 						}
 					}
 					catch (const char* erro)
@@ -546,6 +548,10 @@ int main() {
 							system("pause");
 							break;
 						}
+						case 4:
+						{
+							break;
+						}
 						default:
 							std::cout << "Digite um numero valido." << std::endl;
 							break;
@@ -560,7 +566,7 @@ int main() {
 					try
 					{
 						if (itpj == Lista_PJ.end()) {
-							throw "Nao ha registro do cliente. Pressione ENTER para voltar ao menu.";
+							throw "Nao ha registro do cliente. Para voltar ao menu, pressione qualquer tecla.";
 						}
 					}
 					catch (const char* erro)
@@ -608,6 +614,10 @@ int main() {
 							system("pause");
 							break;
 						}
+						case 4:
+						{
+							break;
+						}
 						default:
 							std::cout << "Erro. Digite um numero valido. " << std::endl;
 							break;
@@ -622,7 +632,7 @@ int main() {
 					try
 					{
 						if (itfuncionarios == Lista_Funcionarios.end()) {
-							throw "Nao ha registro do funcionario. Pressione ENTER para voltar ao menu.";
+							throw "Nao ha registro do funcionario. Para voltar ao menu, pressione qualquer tecla.";
 						}
 					}
 					catch (const char* erro)
@@ -701,6 +711,10 @@ int main() {
 							itfuncionarios->second.setData_ing(ingr);
 							std::cout << "Alteracao realizada com sucesso." << std::endl;
 							system("pause");
+							break;
+						}
+						case 7:
+						{
 							break;
 						}
 						default:
